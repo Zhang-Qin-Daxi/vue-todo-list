@@ -31,9 +31,10 @@ export default {
 
       // 第二种 方式
       //触发自定义事件（@）: addTodo
-      this.$emit('addTodo',todo);
+      this.$emit("addTodo", todo);
 
       this.title = "";
+      location.reload();
     }
   }
 };

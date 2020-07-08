@@ -7,7 +7,7 @@
   >
     <label>
       <input type="checkbox" v-model="todo.complete" />
-      <span>{{todo.title}}</span>
+      <span>{{todo.title}}.txt</span>
     </label>
     <button @click="deleteItem" class="btn btn-danger" v-show="isShow">删除</button>
   </li>
@@ -15,7 +15,7 @@
 
 <script>
 export default {
-  name: 'Item',
+  name: "Item",
   props: {
     todo: Object,
     index: Number,
@@ -29,11 +29,11 @@ export default {
     };
   },
   methods: {
-    activeFun () {
-      this.isActive = true
+    activeFun() {
+      this.isActive = true;
     },
-    defaultFun () {
-      this.isActive = false
+    defaultFun() {
+      this.isActive = false;
     },
     deleteItem() {
       const { index } = this;
@@ -87,9 +87,5 @@ li button {
 
 li:before {
   content: initial;
-}
-
-li:last-child {
-  border-bottom: none;
 }
 </style>

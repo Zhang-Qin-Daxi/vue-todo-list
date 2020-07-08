@@ -4,7 +4,7 @@
     <button @click="Shiwang">网络视图</button>
     <ul class="todo-main">
       <Item
-      ref="Item"
+        ref="Item"
         v-for="(todo,index) in todos"
         :key="index"
         :todo="todo"
@@ -28,11 +28,15 @@ export default {
   },
   methods: {
     Shiwang() {
-      console.log(this.$refs.Item)
-      this.$refs.Item.activeFun()
+      console.log(this.$refs.Item[0]);
+      for (let i = 0; i < this.todos.length; i++) {
+        this.$refs.Item[i].activeFun();
+      }
     },
-    List () {
-      this.$refs.Item.defaultFun()
+    List() {
+      for (let i = 0; i < this.todos.length; i++) {
+        this.$refs.Item[i].defaultFun();
+      }
     }
   }
 };
@@ -40,6 +44,7 @@ export default {
 
 <style scoped>
 .todo-main {
+  height: 50vh;
   margin-left: 0px;
   border: 1px solid #ddd;
   border-radius: 2px;
