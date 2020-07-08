@@ -3,6 +3,7 @@
     @mouseenter="handleEnter(true)"
     @mouseleave="handleEnter(false)"
     :style="{background:bgColor}"
+    :class="isActive? 'active': ''"
   >
     <label>
       <input type="checkbox" v-model="todo.complete" />
@@ -14,6 +15,7 @@
 
 <script>
 export default {
+  name: 'Item',
   props: {
     todo: Object,
     index: Number,
@@ -22,10 +24,17 @@ export default {
   data() {
     return {
       bgColor: "#fff",
-      isShow: false
+      isShow: false,
+      isActive: false
     };
   },
   methods: {
+    activeFun () {
+      this.isActive = true
+    },
+    defaultFun () {
+      this.isActive = false
+    },
     deleteItem() {
       const { index } = this;
       this.deleteTodo(index);
@@ -44,6 +53,12 @@ export default {
 </script>
 
 <style scoped>
+.active {
+  width: 100px;
+  height: 100px;
+  float: left;
+  border: 1px solid #ddd;
+}
 /*item*/
 li {
   list-style: none;
